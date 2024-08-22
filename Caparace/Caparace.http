@@ -1,0 +1,6 @@
+@Caparace_HostAddress = http://localhost:5277
+
+GET {{Caparace_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,7 +1,27 @@
 ﻿@page "/"
+@inject HttpClient Http
+
+@using BlazorAppCaparace.Models
 
 <PageTitle>Home</PageTitle>
 
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
+@* 
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button> *@
+
+
+@code {
+    private int currentCount = 0;
+    protected override async Task OnInitializedAsync()
+    {
+        var products = await Http.GetFromJsonAsync<Product[]>("https://localhost:7056/api/Products");
+    }
+
+    // private async void IncrementCount()
+    // {
+    //     var products = await Http.GetFromJsonAsync<Product[]>("https://localhost:7056/api/Products");
+    // }
+}
+
